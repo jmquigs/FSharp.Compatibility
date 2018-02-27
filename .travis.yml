@@ -6,9 +6,12 @@ language: csharp
 
 #install:
 #  - mono .nuget/NuGet.exe install NUnit.Runners -Version 2.6.3 -OutputDirectory tools
+mono:
+  - 5.4.1
+  - latest
 
 script:
   - xbuild /property:Configuration=Release FSharp.Compatibility.sln
-  - mono --runtime=v4.0.30319 ./packages/NUnit.Runners/tools/nunit-console.exe ./FSharp.Compatibility.OCaml.Tests/bin/Release/FSharp.Compatibility.OCaml.Tests.dll
-  - mono --runtime=v4.0.30319 ./packages/NUnit.Runners/tools/nunit-console.exe ./FSharp.Compatibility.OCaml.System.Tests/bin/Release/FSharp.Compatibility.OCaml.System.Tests.dll
+  - mono ./packages/NUnit.Runners/tools/nunit-console.exe ./FSharp.Compatibility.OCaml.Tests/bin/Release/FSharp.Compatibility.OCaml.Tests.dll
+  - mono ./packages/NUnit.Runners/tools/nunit-console.exe ./FSharp.Compatibility.OCaml.System.Tests/bin/Release/FSharp.Compatibility.OCaml.System.Tests.dll
 
